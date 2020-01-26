@@ -1,0 +1,103 @@
+enum Permission {
+  ADMIN
+  USER
+  GUEST
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
+enum ValidPromoCodes {
+  LACOUNTY2020
+  SFCOUNTY2020
+}
+
+enum Category {
+  AIRCONDITIONER
+  FURNACE
+  WHOLEHOMEMANIFOLD
+  TANKLESSWATERSYSTEM
+  WATERSOFTENER
+  WATERFILTRATION
+  PLUMBING
+  HEATPUMP
+  DUCTLESSMINISPLIT
+}
+
+type User {
+  id: ID! @id @unique
+  name: String!
+  email: String! @unique
+  phone: String
+  password: String!
+  location: String
+  address: String
+  postal: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  cart: [CartItem!]! @scalarList(strategy: RELATION)
+}
+
+type Item {
+  id: ID! @id @unique
+  title: String!
+  description: String!
+  features: [String!] @scalarList(strategy: RELATION)
+  highlights: [String!] @scalarList(strategy: RELATION)
+  promo: [ValidPromoCodes] @scalarList(strategy: RELATION)
+  categories: [Category] @scalarList(strategy: RELATION)
+  sale: Boolean!
+  image: String!
+  largeImage: String!
+  image1: String
+  largeImage1: String
+  image2: String
+  largeImage2: String
+  price: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user: User!
+}
+
+type PromoCode {
+  id: ID! @id @unique
+  item: Item #relationship to Item
+  promotion: [ValidPromoCodes] @scalarList(strategy: RELATION)
+  promotionPrice: Int!
+}
+
+type CartItem {
+  id: ID! @id @unique
+  quantity: Int! @default(value: 1)
+  promotionPrice: Int
+  item: Item #relationship to Item
+  user: User! #relationship to User
+}
+
+type OrderItem {
+  id: ID! @id @unique
+  title: String!
+  description: String!
+  image: String!
+  largeImage: String!
+  image1: String
+  largeImage1: String
+  image2: String
+  largeImage2: String
+  price: Int!
+  promotionPrice: Int
+  quantity: Int! @default(value: 1)
+  user: User
+}
+
+type Order {
+  id: ID! @id @unique
+  items: [OrderItem!]!
+  total: Int!
+  user: User!
+  charge: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

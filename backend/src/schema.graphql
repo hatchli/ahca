@@ -1,0 +1,87 @@
+# import * from './generated/prisma.graphql'
+
+type SuccessMessage {
+  message: String
+}
+
+input PromoInput {
+  promo: String
+}
+
+type Mutation {
+  createItem(
+    title: String
+    description: String
+    features: [String!]
+    highlights: [String!]
+    sale: Boolean
+    categories: [Category]
+    promo: [ValidPromoCodes]
+    price: Int
+    image: String
+    largeImage: String
+    image1: String
+    largeImage1: String
+    image2: String
+    largeImage2: String
+  ): Item!
+  updateItem(id: ID!, title: String, description: String, price: Int): Item!
+  deleteItem(id: ID!): Item
+  signup(email: String!, password: String!, name: String!): User!
+  createGuest(email: String, password: String, name: String): User!
+  updatePhoneLocation(
+    name: String
+    email: String
+    phone: String
+    location: String
+    email: String
+  ): User!
+  updatePhoneAddress(
+    name: String!
+    email: String!
+    phone: String!
+    address: String!
+    postal: String!
+    email: String!
+  ): User!
+  updatePriceAfterPromoCode(id: ID!, promotion: String!): PromoCode!
+  signin(email: String!, password: String!): User!
+  signout: SuccessMessage
+  requestReset(email: String!): SuccessMessage
+  resetPassword(
+    resetToken: String!
+    password: String!
+    confirmPassword: String!
+  ): User!
+  updatePermissions(permissions: [Permission], userId: ID!): User
+  addToCart(id: ID!, promotionPrice: Int): CartItem
+  removeFromCart(id: ID!): CartItem
+  createOrder(token: String!): Order!
+}
+
+type Query {
+  items(
+    where: ItemWhereInput
+    orderBy: ItemOrderByInput
+    skip: Int
+    first: Int
+  ): [Item]!
+  item(where: ItemWhereUniqueInput!): Item
+  itemsConnection(where: ItemWhereInput): ItemConnection!
+  me: User
+  users: [User]!
+  order(id: ID!): Order
+  orders(orderBy: OrderOrderByInput): [Order]!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  location: String
+  address: String
+  postal: String
+  phone: String
+  permissions: [Permission!]!
+  cart: [CartItem!]!
+}

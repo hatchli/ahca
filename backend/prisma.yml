@@ -1,0 +1,8 @@
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://ahca-production-9a4ff340be.herokuapp.com/ahca-prod/prod
+
+datamodel: datamodel.graphql
+secret: ${env:PRISMA_SECRET}
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma

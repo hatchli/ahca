@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\n// import Banner from \"../components/Banner\";\nimport React from \"react\";\nimport Home from \"../components/Home.js\";\n\nconst index = props => {\n  return __jsx(Home, null, props.children);\n};\n\nexport default index;","map":null,"metadata":{},"sourceType":"module"}

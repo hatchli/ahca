@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nimport Fade from \"react-reveal/Fade\";\n\nvar Raise = function Raise(props) {\n  return __jsx(Fade, {\n    bottom: true\n  }, props.children);\n};\n\nexport default Raise;","map":null,"metadata":{},"sourceType":"module"}

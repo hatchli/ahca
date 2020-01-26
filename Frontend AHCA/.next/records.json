@@ -1,0 +1,45 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/runtime/main.js": 2,
+      "static/runtime/polyfills.js": 3,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\_app.js": 4,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\_error.js": 5,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\index.js": 6,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\item.js": 7,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\order.js": 8,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\orders.js": 9,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\permissions.js": 10,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\reset.js": 11,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\sell.js": 12,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\shop.js": 13,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\signup.js": 14,
+      "static\\z30YOk49wcMz6hcofgEgC\\pages\\update.js": 15
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

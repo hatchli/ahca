@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nimport styled from \"styled-components\";\nconst WidthStyles = styled.div.withConfig({\n  displayName: \"WidthStyles\",\n  componentId: \"sc-7j56cs-0\"\n})([\"max-width:\", \";margin:0 auto;padding:2rem;\"], props => props.theme.maxWidth);\nexport default WidthStyles;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "American Home Construction Authority",
+  "builds": [{ "src": "src/index.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/.*", "dest": "src/index.js" }],
+  "env": {
+    "FRONTEND_URL": "@frontend_url",
+    "PRISMA_ENDPOINT": "@prisma_endpoint",
+    "PRISMA_SECRET": "@prisma_secret",
+    "APP_SECRET": "@app_secret",
+    "STRIPE_SECRET": "@stripe_secret",
+    "PORT": "@port",
+    "MAIL_HOST": "@mail_host",
+    "MAIL_USER": "@mail_user",
+    "MAIL_PASS": "@mail_pass",
+    "MAP_PASS": "@map_pass"
+  }
+}

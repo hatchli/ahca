@@ -11,7 +11,8 @@ import { Box, Flex } from "rebass";
 // import MAP_STYLE from 'https://api.mapbox.com/styles/v1/mapbox/light-v9.html?title=false&access_token=pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg#7.75/33.997/-116.72'
 import LocationCard from "./LocationCard";
 
-const TOKEN = process.env.MAP_PASS; // Set your mapbox token here
+const TOKEN =
+  "pk.eyJ1Ijoid2xlZXMiLCJhIjoiY2s0YnBoZDQzMGZ6bjNudXFiMmkwbHRsMCJ9.vej5vu3WZhr9AEHiNPrVow"; // Set your mapbox token here
 
 const geolocateStyle = {
   position: "absolute",
@@ -88,7 +89,6 @@ export default class Map extends Component {
           padding: 40
         }
       );
-      console.log(zoom);
 
       this.setState({
         county: countyName,
@@ -135,9 +135,7 @@ export default class Map extends Component {
                   onViewportChange={this._updateViewport}
                   mapboxApiAccessToken={TOKEN}
                   onTransitionEnd={async () => {
-                    console.log("onchange called");
                     const res = await updatePhoneLocation();
-                    console.log(res);
                   }}
                 >
                   <ControlPanel

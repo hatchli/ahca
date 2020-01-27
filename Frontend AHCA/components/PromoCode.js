@@ -19,7 +19,7 @@ const PromoCode = props => {
   const maround = [1, 3];
   const pleft = [0, 1, 2, 3];
   const wconst = [1, 3 / 4];
-  console.log(props);
+
   return (
     <>
       <Query query={CURRENT_USER_QUERY}>

@@ -11,7 +11,7 @@ const Nav = () => (
   <User>
     {({ data }) => {
       const me = data ? data.me : null;
-      console.log(data);
+
       return (
         <NavStyles data-test="nav">
           <Link href="/shop">

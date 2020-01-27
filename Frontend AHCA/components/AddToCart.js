@@ -42,7 +42,6 @@ const AddToCart = (props, { id }) => (
           refetchQueries={[{ query: CURRENT_USER_QUERY }]}
         >
           {(addToCart, { loading, error }) => {
-            console.log("id of item", id);
             return (
               <Button
                 {...props}

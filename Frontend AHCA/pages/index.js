@@ -1,9 +1,11 @@
-// import Banner from "../components/Banner";
-import React from "react";
-import Home from "../components/Home.js";
+import Main from "../components/Main";
 
-const index = props => {
-  return <Home>{props.children}</Home>;
+const Home = props => {
+  return (
+    <div>
+      <Main />;
+    </div>
+  );
 };
 
-export default index;
+export default Home;

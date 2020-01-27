@@ -8,15 +8,15 @@ import Error from "./ErrorMessage";
 import WidthStyles from "./styles/WidthStyles";
 
 const possibleCategories = [
-  "AIRCONDITIONER",
+  "AIR_CONDITIONER",
   "FURNACE",
-  "WHOLEHOMEMANIFOLD",
-  "TANKLESSWATERSYSTEM",
-  "WATERSOFTENER",
-  "WATERFILTRATION",
+  "WHOLE_HOME_MANIFOLD",
+  "TANKLESS_WATER_SYSTEM",
+  "WATER_SOFTENER",
+  "WATER_FILTRATION",
   "PLUMBING",
   "HEATPUMP",
-  "DUCTLESSMINISPLIT"
+  "DUCTLESS_MINISPLIT"
 ];
 
 const promoCodes = ["LACOUNTY2020", "SFCOUNTY2020"];
@@ -80,8 +80,6 @@ class CreateItem extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevState", prevState.imageArray);
-    console.log("state of imageArray", this.state.imageArray);
     if (this.state.imageArray !== prevState.imageArray) {
       this.setState(prevState => ({
         ...prevState,
@@ -96,11 +94,9 @@ class CreateItem extends Component {
   }
 
   handleChange = e => {
-    console.log("value: ", e.target.value);
-    console.log("name: ", e.target.name);
     const { name, type, value } = e.target;
     const val = type === "number" ? parseFloat(value) : value;
-    console.log("name: ", name, "val: ", val);
+
     this.setState({ [name]: val });
   };
 
@@ -155,7 +151,6 @@ class CreateItem extends Component {
   // };
 
   uploadFileHandler = async e => {
-    console.log("... uploading");
     const files = e.target.files;
 
     const data = new FormData();
@@ -171,7 +166,6 @@ class CreateItem extends Component {
         }
       );
       const fileResp = await res.json();
-      console.log("fileResp", fileResp);
 
       if (!fileResp.error) {
         this.setState(prevState => ({
@@ -204,7 +198,7 @@ class CreateItem extends Component {
                 e.preventDefault();
                 const res = await createItem();
                 // change them to the single item page
-                console.log(res);
+
                 Router.push({
                   pathname: "/item",
                   query: { id: res.data.createItem.id }

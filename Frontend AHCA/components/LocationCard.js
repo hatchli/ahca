@@ -40,9 +40,8 @@ class LocationCard extends Component {
         ...prevState,
         location: this.props.county
       }));
-      console.log(this.state.location);
+
       this.handleChangeLocation();
-      console.log(this.state.location);
     }
   }
 
@@ -155,8 +154,6 @@ class LocationCard extends Component {
       mutation: UPDATE_PHONE_LOCATION,
       variables: this.state
     });
-    console.log(this.state.location);
-    console.log("handleChangeLocation called");
   };
 }
 

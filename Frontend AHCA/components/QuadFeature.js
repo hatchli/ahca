@@ -86,27 +86,33 @@ export default function QuadFeature(props) {
             </Flex>
           </Box>
           <Box {...props} width={responsiveWidth} px={2} mx={2}>
-            <Flex justifyContent="center" alignItems="baseline">
-              <Image
-                alignSelf="flex-start"
-                mr={3}
-                src="https://res.cloudinary.com/americansavings/image/upload/v1577393743/tulgknjewchulh9sksvq.svg"
-              />
-              <Flex flexDirection="column" width={3 / 4}>
-                <Heading
-                  fontSize={featureFontSize}
-                  textAlign="left"
-                  sx={{
-                    textTransform: "uppercase"
-                  }}
-                >
-                  Feature 2
-                </Heading>
-                <Text p={1} textAlign="left" fontSize={textFontSize}>
-                  Up to 31% more cost efficient than convectional electric
-                  heaters.
-                </Text>
-              </Flex>
+            <Flex flexDirection="column" width={1}>
+              <Box>
+                <Flex justifyContent="center" alignItems="baseline">
+                  <Image
+                    alignSelf="flex-start"
+                    mr={3}
+                    src="https://res.cloudinary.com/americansavings/image/upload/v1577393743/tulgknjewchulh9sksvq.svg"
+                  />
+                  <Box width={3 / 4}>
+                    <Heading
+                      fontSize={featureFontSize}
+                      textAlign="left"
+                      sx={{
+                        textTransform: "uppercase"
+                      }}
+                    >
+                      Feature 2
+                    </Heading>
+                  </Box>
+                  <Box width={[1, 3 / 4]} justifyContent="flex-end">
+                    <Text p={1} textAlign="left" fontSize={textFontSize}>
+                      Up to 31% more cost efficient than convectional electric
+                      heaters.
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
             </Flex>
           </Box>
         </Flex>

@@ -12,7 +12,7 @@ export const Lead = props => {
     <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
       <Box width={[1, 1 / 2]} py={3}>
         <Heading color="near-black" fontSize={[4, 4, 5, 5, 7]} pl={pleft}>
-          Get
+          Get!
         </Heading>
         <Raise distance="50%">
           <Heading

@@ -8,12 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/",
+      "src": "/index",
       "dest": "/$1"
     }
   ],
   "env": {
     "MAP_PASS": "@map_pass",
-    "PRODENDPOINT2": "@prodendpoint2"
+    "PRODENDPOINT3": "@prodendpoint3"
   }
 }

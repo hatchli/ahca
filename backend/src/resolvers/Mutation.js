@@ -21,8 +21,6 @@ const Mutations = {
       throw new Error("You don't have permission to do that!");
     }
 
-    console.log(args);
-
     const item = await ctx.db.mutation.createItem(
       {
         data: {
@@ -50,7 +48,7 @@ const Mutations = {
       info
     );
 
-    console.log(item);
+   
 
     return item;
   },
@@ -90,17 +88,14 @@ const Mutations = {
   async signup(parent, args, ctx, info) {
     const currentUser = ctx.request.userId;
 
-    console.log("currentUser", currentUser);
-
-    console.log("args", args);
     // lowercase their email
     const email = args.email.toLowerCase();
-    console.log("email", email);
+
     const name = args.name;
-    console.log("name", name);
+
     // hash their password
     const password = await bcrypt.hash(args.password, 10);
-    console.log("password", password);
+
     // create the user in the database
     const user = await ctx.db.mutation.updateUser(
       {
@@ -114,7 +109,6 @@ const Mutations = {
       },
       info
     );
-    console.log("user", user);
     // Finalllllly we return the user to the browser
     return user;
   },
@@ -274,25 +268,23 @@ const Mutations = {
       },
       info
     );
-    console.log(user);
     return user;
   },
   async updatePriceAfterPromoCode(parent, args, ctx, info) {
     const { userId } = ctx.request;
     const { id } = ctx.request;
     const where = { id: args.id };
-    console.log("promo args", args.promotion);
+
     const itemPromos = await ctx.db.query.item({ where }, `{id promo }`);
-    console.log("itemPromos.promo", itemPromos.promo);
-    console.log("itemPromos.id", itemPromos.id);
+
     const matchedPromo = itemPromos.promo.filter(promotion =>
       promotion.includes(args.promotion)
     );
-    console.log("matchedPromo", matchedPromo);
+
     if (!matchedPromo.length) {
       throw new Error("Invalid Promo Code");
     }
-    console.log("matchedPromo[0]", matchedPromo[0]);
+
 
     const promocodeId = await ctx.db.query
       .promoCodes(
@@ -306,7 +298,7 @@ const Mutations = {
       .catch(err => {
         new Error(err);
       });
-    console.log("promocodeId[0].id", promocodeId[0].id);
+
     const promotionItem = await ctx.db.query
       .promoCode(
         {
@@ -320,7 +312,7 @@ const Mutations = {
       .catch(err => {
         new Error(err);
       });
-    console.log("promotionItem.promotion", promotionItem.promotion);
+
     if (promotionItem.promotion[0] != matchedPromo[0]) {
       throw new Error("Promo Code Does Not Apply");
     }
@@ -335,7 +327,6 @@ const Mutations = {
     //   `{promotionPrice}`
     // );
 
-    console.log("promotionPrice", promotionItem.promotionPrice);
 
     const [existingCartItem] = await ctx.db.query.cartItems({
       where: {
@@ -343,7 +334,7 @@ const Mutations = {
         item: { id: args.id }
       }
     });
-    console.log(existingCartItem);
+ 
 
     if (existingCartItem) {
       return ctx.db.mutation.updateCartItem(
@@ -425,7 +416,7 @@ const Mutations = {
     const email = `Guest${uuidv4()}`;
     const name = email;
     const password = uuidv4();
-    console.log(`email: ${email} name: ${name} password:${password}`);
+
     const user = await ctx.db.mutation.createUser(
       {
         data: {
@@ -444,7 +435,7 @@ const Mutations = {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year cookie
     });
-    console.log("finished creating new Guest");
+
     return user;
     // Finalllllly we return the user to the browser
     // return user;
@@ -461,7 +452,7 @@ const Mutations = {
     });
     // 3. Check if that item is already in their cart and increment by 1 if it is
     if (existingCartItem) {
-      console.log("This item is already in their cart");
+
       return ctx.db.mutation.updateCartItem(
         {
           where: { id: existingCartItem.id },
@@ -540,15 +531,15 @@ const Mutations = {
       (tally, cartItem) => tally + cartItem.promotionPrice * cartItem.quantity,
       0
     );
-    console.log("promoAmount", promoAmount);
+
     const regularAmount = regularItems.reduce(
       (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
       0
     );
 
-    console.log("regularAmount", regularAmount);
+
     const amount = promoAmount + regularAmount;
-    console.log(`Going to charge for a total of ${amount}`);
+
     // 3. Create the stripe charge (turn token into $$$)
     const charge = await stripe.charges.create({
       amount,

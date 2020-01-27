@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/wade-3a7c08/americansavingsauthority/dev
-# timestamp: Sat Jan 25 2020 15:48:02 GMT-0500 (Eastern Standard Time)
+# timestamp: Mon Jan 27 2020 14:18:29 GMT-0500 (Eastern Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -379,15 +379,15 @@ input CartItemWhereUniqueInput {
 }
 
 enum Category {
-  AIRCONDITIONER
+  AIR_CONDITIONER
   FURNACE
-  WHOLEHOMEMANIFOLD
-  TANKLESSWATERSYSTEM
-  WATERSOFTENER
-  WATERFILTRATION
+  WHOLE_HOME_MANIFOLD
+  TANKLESS_WATER_SYSTEM
+  WATER_SOFTENER
+  WATER_FILTRATION
   PLUMBING
   HEATPUMP
-  DUCTLESSMINISPLIT
+  DUCTLESS_MINI_SPLIT
 }
 
 scalar DateTime

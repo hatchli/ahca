@@ -39,7 +39,6 @@ const ALL_USERS_QUERY = gql`
 const Permissions = props => (
   <Query query={ALL_USERS_QUERY}>
     {({ data, loading, error }) => {
-      console.log(data);
       const users = data ? data.users : null;
       return loading ? (
         <>

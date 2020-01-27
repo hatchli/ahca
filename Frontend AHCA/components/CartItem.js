@@ -24,7 +24,7 @@ const CartItem = ({ cartItem }) => {
         <RemoveFromCart id={cartItem.id} />
       </CartItemStyles>
     );
-  console.log("cartItem", cartItem);
+
   return (
     <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
       <Box

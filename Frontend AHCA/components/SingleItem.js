@@ -69,7 +69,7 @@ const SingleItem = (props, { item, index }) => {
         if (loading) return <p>Loading...</p>;
         if (!data.item) return <p>No Item found for {props.id}</p>;
         const item = data.item;
-        console.log("item within return", item);
+
         return (
           <SingleItemStyles>
             <Flex flexWrap="wrap" justifyContent="center">

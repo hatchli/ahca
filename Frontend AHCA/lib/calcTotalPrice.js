@@ -1,5 +1,4 @@
 export default function calcTotalPrice(cart) {
-  console.log(cart);
   const promoItems = cart.filter(cartItem => cartItem.promotionPrice !== null);
   const regularItems = cart.filter(
     cartItem => cartItem.promotionPrice === null
@@ -14,8 +13,6 @@ export default function calcTotalPrice(cart) {
     0
   );
 
-  console.log(promoAmount);
-  console.log(regularAmount);
   return cart.reduce((tally, cartItem) => {
     if (!cartItem.item) return tally;
     return regularAmount + promoAmount;

@@ -23,7 +23,6 @@ const ItemsFrontPage = props => {
   const { item } = props;
   // const limitedFeatures =
   const { index } = props;
-  console.log("categories", item.categories);
   return (index + 3) % 2 === 0 ? (
     <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
       <Box width={[1, 1 / 2]} pt={ptop} pr={pleft}>

@@ -93,7 +93,6 @@ const FooterStyle = styled.footer`
 `;
 
 const Footer = props => {
-  console.log(props.context);
   return (
     <ThemeProvider theme={theme}>
       <Flex

@@ -83,7 +83,6 @@ class updatePhoneAddress extends Component {
                       onSubmit={async e => {
                         e.preventDefault();
                         const res = await updatePhoneAddress();
-                        console.log(res);
                       }}
                       pl={pleft}
                       py={3}
